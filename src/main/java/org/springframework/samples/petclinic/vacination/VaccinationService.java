@@ -2,9 +2,18 @@ package org.springframework.samples.petclinic.vacination;
 
 import java.util.List;
 
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+@Service
 public class VaccinationService {
+	
+	@Autowired
+	private VaccinationRepository vaccinationRepository;
+	
     public List<Vaccination> getAll(){
-        return null;
+    	List<Vaccination> v = vaccinationRepository.findAll();
+        return v;
     }
 
     public List<Vaccine> getAllVaccines(){
